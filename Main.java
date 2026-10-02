@@ -1,11 +1,18 @@
-//TIP Чтобы <b>запустить</b> код, нажмите <shortcut actionId="Run"/> или
-// нажмите на значок <icon src="AllIcons.Actions.Execute"/> на полях.
 public class Main {
     public static void main(String[] args) {
-        //TIP Нажмите <shortcut actionId="ShowIntentionActions"/>, когда курсор находится на подсвеченном тексте,
-        // чтобы увидеть предложения IntelliJ IDEA по исправлению.
-        System.out.printf("Hello and welcome!");
+        Dog firstDog = new Dog();// создал экземпляр класса дог
+        firstDog.ageDog = 5;
+        firstDog.nameDog = "Chelsy";
 
+        Cat firstCat = new Cat();// создал экземпляр класса кэт
+        firstCat.ageCat = 2;
+        firstCat.nameCat = "Mars";
+        Cat.sayHello();
+        Dog.sayHello();
+        Dog.catchCat(firstCat);
 
+        Day toDay = Day.FRIDAY;
+        System.out.println(toDay.getRusName());
+        System.out.println("Выходной??? " + toDay.isWeekend());
     }
 }
