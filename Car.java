@@ -1,6 +1,6 @@
 import java.lang.AutoCloseable;
 
-public static class Car implements AutoCloseable {
+public class Car implements AutoCloseable {
 // немного усложнил класс кар добавив параметры и конструкторы
     private String color;
     private double maxSpeed;
@@ -23,19 +23,17 @@ public static class Car implements AutoCloseable {
 
     @Override
     public void close() {
-        System.out.println("«Машина закрывается...»");
+        System.out.println("Машина закрывается...");
     }
     public void drive() {
-        System.out.println("«Машина поехала.»");
+        System.out.println("Машина поехала.");
     }
-}
+    public static void main() {
+        try  (Car car = new Car(155)){// Блок трай пытается создать новый обьект класса кар
+            System.out.println("This Car color is " + car.color);
+            System.out.println("Maximal Speed = " + car.maxSpeed);
+            car.drive();
+        } catch (RuntimeException e) {
 
-public static void main() {
-    try  (Car car = new Car(155)){// Блок трай пытается создать новый обьект класса кар
-        System.out.println("This Car color is " + car.color);
-        System.out.println("Maximal Speed = " + car.maxSpeed);
-        car.drive();
-    } catch (RuntimeException e) {
-        throw new RuntimeException(e);
-    }
-}
+        }
+}}
